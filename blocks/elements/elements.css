@@ -7,9 +7,18 @@
     gap: 17px 20px;
 }
 
-@media screen and (max-width: 320px) {
+@media screen and (max-width: 1279px) {
+    .elements {
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: repeat(3, 1fr);
+        max-width: 600px;
+    }
+}
+
+@media screen and (max-width: 767px) {
     .elements {
         grid-template-columns: repeat(1, 1fr);
         grid-template-rows: repeat(6, 1fr);
+       
     }
 }

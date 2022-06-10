@@ -1,17 +1,19 @@
 .profile__discription {
-    margin: 0 0 25px 30px;
+    margin: -40px 0 25px 30px;
     font-style: normal;
     font-weight: 400;
     font-size: 18px;
     line-height: 22px;
+    grid-area: profile__discription;
 }
 
-@media screen and (max-width: 320px) {
+@media screen and (max-width: 767px) {
     .profile__discription {
         font-style: normal;
         font-weight: 400;
         font-size: 14px;
         line-height: 17px;
         text-align: center;
+        margin: 0 auto 36px;
     }
 }

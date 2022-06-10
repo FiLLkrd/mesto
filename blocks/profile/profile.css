@@ -1,16 +1,27 @@
 .profile{
     margin: 0 auto;
     max-width: 880px;
-    
+    max-height: 120px;
     color: white;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+    display: grid;
+    grid-template-columns: 120px 2fr repeat(2, 1fr);
+    grid-template-rows: 120px 1fr;
+    grid-template-areas: 
+    "profile__image profile__name button__edit button__add"
+    "profile__image profile__discription button__edit .";
 }
 
-@media screen and (max-width: 320px) {
+@media screen and (max-width: 767px) {
     .profile {
         max-width: 282px;
-        flex-direction: column;
+        max-height: 286px;
+        grid-template-areas: 
+        "profile__image profile__image profile__image profile__image"
+        "profile__name profile__name profile__name button__edit"
+        "profile__discription  profile__discription profile__discription profile__discription"
+        "button__add button__add button__add button__add";
     }
 }

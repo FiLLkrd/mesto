@@ -1,3 +1,15 @@
 .button__edit{
-    margin: 37px auto 59px 18px;
+    margin: 0 auto 0 -80px;
+    padding-top: 40px;
+    padding-left: 18px;
+    grid-area: button__edit;
+}
+
+@media screen and (max-width: 767px) {
+    .button__edit {
+        margin: 0;
+        margin-right: 10px;
+        padding: 0;
+        padding-top: 30px;
+    }
 }
