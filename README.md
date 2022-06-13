@@ -2,7 +2,7 @@
 ## MESTO
 
 <<<<<<< HEAD
-*  ссылка на проект https://fillkrd.github.io/russian-travel/
+*  ссылка на проект https://fillkrd.github.io/mesto/
 =======
 
 ## Описание
