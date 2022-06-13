@@ -14,61 +14,89 @@
         <img src="images/header-logo.svg" alt="Логотип" class="header__logo">
         <img src="images/header-line.svg" alt="Линия границы" class="header__line">
     </header>
-    <section class="profile">
-        <img src="images/profile-avatar.svg" alt="Аватар" class="profile__image">
+
+<section class="profile">
+    <img src="images/profile-avatar.svg" alt="Аватар" class="profile__avatar">
+    <div class="profile__info">
         <h1 class="profile__name">Жак-Ив Кусто</h1>
-        <img src="images/Button-edit.svg" alt="Редактировать" class="button__edit opacity">
-        <p class="profile__discription">Исследователь океана</p>
-        <img src="images/Button-add.svg" alt="Добавить" class="button__add opacity">
-    </section>
+        <button class="profile__edit opacity" type="button"></button>
+        <p class="profile__job">Исследователь океана</p>
+    </div>
+    <button class="profile__add opacity" type="button"></button>
+</section>
+
     <section class="elements">
         <div class="element">
-            <img src="images/element-canada.jpg" alt="" class="element__image">
+            <img src="images/element-canada.jpeg" alt="" class="element__image">
             <div class="element__signature">
                 <p class="element__title">Канада</p>
-                <img src="images/element-like.svg" alt="лайк" class="element__like opacity">
+                <div class="element__like opacity"></div>
             </div>
         </div>
         <div class="element">
-            <img src="images/element-england.jpg" alt="" class="element__image">
+            <img src="images/element-england.jpeg" alt="" class="element__image">
             <div class="element__signature">
                 <p class="element__title">Англия</p>
-                <img src="images/element-like.svg" alt="лайк" class="element__like opacity">
+                <div class="element__like opacity"></div>
             </div>
         </div>
         <div class="element">
-            <img src="images/element-norvegia.jpg" alt="" class="element__image">
+            <img src="images/element-norvegia.jpeg" alt="" class="element__image">
             <div class="element__signature">
                 <p class="element__title">Норвегия</p>
-                <img src="images/element-like.svg" alt="лайк" class="element__like opacity">
+                <div class="element__like opacity"></div>
             </div>
         </div>
         <div class="element">
-            <img src="images/element-russia.jpg" alt="" class="element__image">
+            <img src="images/element-russia.jpeg" alt="" class="element__image">
             <div class="element__signature">
                 <p class="element__title">Россия</p>
-                <img src="images/element-like.svg" alt="лайк" class="element__like opacity">
+                <div class="element__like opacity"></div>
             </div>
         </div>
         <div class="element">
-            <img src="images/element-spain.jpg" alt="" class="element__image">
+            <img src="images/element-spain.jpeg" alt="" class="element__image">
             <div class="element__signature">
                 <p class="element__title">Испания</p>
-                <img src="images/element-like.svg" alt="лайк" class="element__like opacity">
+                <div class="element__like opacity"></div>
             </div>
         </div>
         <div class="element">
-            <img src="images/element-usa.jpg" alt="" class="element__image">
+            <img src="images/element-usa.jpeg" alt="" class="element__image">
             <div class="element__signature">
                 <p class="element__title">США</p>
-                <img src="images/element-like.svg" alt="лайк" class="element__like opacity">
+                <div class="element__like opacity"></div>
             </div>
         </div>
     </section>
     <footer class="footer">
-        <p class="footer__copyright">© 2022. Максим Антонов</p>
+        <p class="footer__copyright">&#169; 2022. Максим Антонов</p>
     </footer>
-    <script></script>
+    
+    <div class="popup popup_hidden">
+        <div class="popup__container">
+          <button class="popup__close-button opacity" type="button"></button>
+          <form class="popup__form" id="form__edit" name="form__edit">
+            <h3 class="popup__title">Редактировать профиль</h3>
+            <input
+              class="popup__input popup__input_type_name"
+              type="text"
+              id="edit__name"
+              name="name"
+              value="Жак-Ив Кустоe"
+            />
+            <input
+              class="popup__input popup__input_type_job"
+              type="text"
+              id="edit__job"
+              name="job"
+              value="Исследователь океана"
+            />
+            <button class="popup__save-button opacity" type="submit">Сохранить</button>
+          </form>
+        </div>
+      </div>
+    <script src="script/index.js"></script>
 </body>
 
 </html>
