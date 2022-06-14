@@ -12,90 +12,78 @@
 <body class="page">
     <header class="header">
         <img src="images/header-logo.svg" alt="Логотип" class="header__logo">
-        <img src="images/header-line.svg" alt="Линия границы" class="header__line">
     </header>
-
-<section class="profile">
-    <img src="images/profile-avatar.svg" alt="Аватар" class="profile__avatar">
-    <div class="profile__info">
-        <h1 class="profile__name">Жак-Ив Кусто</h1>
-        <button class="profile__edit opacity" type="button"></button>
-        <p class="profile__job">Исследователь океана</p>
-    </div>
-    <button class="profile__add opacity" type="button"></button>
-</section>
-
-    <section class="elements">
-        <div class="element">
-            <img src="images/element-canada.jpeg" alt="" class="element__image">
-            <div class="element__signature">
-                <p class="element__title">Канада</p>
-                <div class="element__like opacity"></div>
+    <main class="content">
+        <section class="profile">
+            <img src="images/profile-avatar.jpg" alt="Аватар" class="profile__avatar">
+            <div class="profile__info">
+                <h1 class="profile__name">Жак-Ив Кусто</h1>
+                <button class="profile__edit opacity" type="button"></button>
+                <p class="profile__job">Исследователь океана</p>
             </div>
-        </div>
-        <div class="element">
-            <img src="images/element-england.jpeg" alt="" class="element__image">
-            <div class="element__signature">
-                <p class="element__title">Англия</p>
-                <div class="element__like opacity"></div>
+            <button class="profile__add opacity" type="button"></button>
+        </section>
+        <section class="elements">
+            <div class="element">
+                <img src="images/element-canada.jpeg" alt="Фотография" class="element__image">
+                <div class="element__signature">
+                    <h2 class="element__title">Канада</h2>
+                    <button class="element__like opacity"></button>
+                </div>
             </div>
-        </div>
-        <div class="element">
-            <img src="images/element-irish.jpg" alt="" class="element__image">
-            <div class="element__signature">
-                <p class="element__title">Ирландия</p>
-                <div class="element__like opacity"></div>
+            <div class="element">
+                <img src="images/element-england.jpeg" alt="Фотография" class="element__image">
+                <div class="element__signature">
+                    <h2 class="element__title">Англия</h2>
+                    <button class="element__like opacity"></button>
+                </div>
             </div>
-        </div>
-        <div class="element">
-            <img src="images/element-russia.jpeg" alt="" class="element__image">
-            <div class="element__signature">
-                <p class="element__title">Россия</p>
-                <div class="element__like opacity"></div>
+            <div class="element">
+                <img src="images/element-irish.jpg" alt="Фотография" class="element__image">
+                <div class="element__signature">
+                    <h2 class="element__title">Ирландия</h2>
+                    <button class="element__like opacity"></button>
+                </div>
             </div>
-        </div>
-        <div class="element">
-            <img src="images/element-italy.jpg" alt="" class="element__image">
-            <div class="element__signature">
-                <p class="element__title">Италия</p>
-                <div class="element__like opacity"></div>
+            <div class="element">
+                <img src="images/element-russia.jpeg" alt="Фотография" class="element__image">
+                <div class="element__signature">
+                    <h2 class="element__title">Россия</h2>
+                    <button class="element__like opacity"></button>
+                </div>
             </div>
-        </div>
-        <div class="element">
-            <img src="images/element-usa.jpeg" alt="" class="element__image">
-            <div class="element__signature">
-                <p class="element__title">США</p>
-                <div class="element__like opacity"></div>
+            <div class="element">
+                <img src="images/element-italy.jpg" alt="Фотография" class="element__image">
+                <div class="element__signature">
+                    <h2 class="element__title">Италия</h2>
+                    <button class="element__like opacity"></button>
+                </div>
             </div>
-        </div>
-    </section>
+            <div class="element">
+                <img src="images/element-usa.jpeg" alt="Фотография" class="element__image">
+                <div class="element__signature">
+                    <h2 class="element__title">США</h2>
+                    <button class="element__like opacity"></button>
+                </div>
+            </div>
+        </section>
+    </main>
     <footer class="footer">
         <p class="footer__copyright">&#169; 2022. Максим Антонов</p>
     </footer>
-    
-    <div class="popup popup_hidden">
+    <div class="popup">
         <div class="popup__container">
-          <button class="popup__close-button opacity" type="button"></button>
-          <form class="popup__form" id="form__edit" name="form__edit">
-            <h3 class="popup__title">Редактировать профиль</h3>
-            <input
-              class="popup__input popup__input_type_name"
-              type="text"
-              id="edit__name"
-              name="name"
-              value="Жак-Ив Кустоe"
-            />
-            <input
-              class="popup__input popup__input_type_job"
-              type="text"
-              id="edit__job"
-              name="job"
-              value="Исследователь океана"
-            />
-            <button class="popup__save-button opacity" type="submit">Сохранить</button>
-          </form>
+            <button class="popup__close-button opacity" type="button"></button>
+            <form class="popup__form" id="form__edit" name="form__edit">
+                <h3 class="popup__title">Редактировать профиль</h3>
+                <input class="popup__input popup__input_type_name" type="text" id="edit__name" name="name"
+                    value="" />
+                <input class="popup__input popup__input_type_job" type="text" id="edit__job" name="job"
+                    value="" />
+                <button class="popup__save-button opacity" type="submit">Сохранить</button>
+            </form>
         </div>
-      </div>
+    </div>
     <script src="script/index.js"></script>
 </body>
 

@@ -3,14 +3,14 @@
     max-width: 880px;
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    grid-template-rows: repeat(2, 1fr);
+    
     gap: 17px 20px;
 }
 
 @media screen and (max-width: 1279px) {
     .elements {
         grid-template-columns: repeat(2, 1fr);
-        grid-template-rows: repeat(3, 1fr);
+    
         max-width: 600px;
     }
 }
@@ -18,7 +18,7 @@
 @media screen and (max-width: 767px) {
     .elements {
         grid-template-columns: repeat(1, 1fr);
-        grid-template-rows: repeat(6, 1fr);
+        
        
     }
 }

@@ -14,10 +14,8 @@
 
 @media screen and (max-width: 767px) {
     .profile__name {
-        padding-top: 6.5px;
-        font-weight: 500;
         font-size: 27px;
-        line-height: 33px;
         text-align: center;
+        padding-top: 6.5px;
     }
 }

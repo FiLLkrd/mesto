@@ -2,6 +2,7 @@
     height: 50px;
     cursor: pointer;
     border: none;
+    outline: none;
     color: white;
     background-color: black;
     border-radius: 2px;
@@ -11,3 +12,12 @@
     font-size: 18px;
     line-height: 22px;
   }
+
+  @media screen and (max-width: 620px) {
+    .popup__save-button {
+      font-size: 14px;
+      line-height: 17px;
+      height: 46px;
+    }
+  }
+  

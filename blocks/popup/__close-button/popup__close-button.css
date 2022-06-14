@@ -11,6 +11,14 @@
     background-color: transparent;
     border: 0;
     cursor: pointer;
+    outline: none;
   }
 
-  
+  @media screen and (max-width: 620px) {
+    .popup__close-button {
+      width: 20px;
+      height: 20px;
+      right: 0px;
+      top: -36px;
+    }
+  }

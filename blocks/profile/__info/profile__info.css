@@ -11,3 +11,12 @@
     margin: 0 auto 0 30px;
     color: #fff;
 }
+
+@media screen and (max-width: 920px){
+.profile__info {
+    row-gap: 0px;
+    column-gap: 10px;
+    margin: 12px auto 0;
+    padding-left: 26px;
+}
+}

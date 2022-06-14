@@ -5,6 +5,7 @@
     background-color: transparent;
     background-position: center;
     background-repeat: no-repeat;
+    outline: none;
     margin-top: 10px;
     grid-area: profile__edit;
     grid-column: -1 / -2;
