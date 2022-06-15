@@ -7,4 +7,9 @@
     cursor: pointer;
     background-color: #fff;
     margin-bottom: 5px;
+    outline: none;
+}
+
+.element__like:hover {
+    opacity: 0.5;
 }
