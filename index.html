@@ -23,67 +23,49 @@
             </div>
             <button class="profile__add opacity" type="button"></button>
         </section>
-        <section class="elements">
-            <div class="element">
-                <img src="images/element-canada.jpeg" alt="Фотография" class="element__image">
-                <div class="element__signature">
-                    <h2 class="element__title">Канада</h2>
-                    <button class="element__like" type="button"></button>
-                </div>
-            </div>
-            <div class="element">
-                <img src="images/element-england.jpeg" alt="Фотография" class="element__image">
-                <div class="element__signature">
-                    <h2 class="element__title">Англия</h2>
-                    <button class="element__like" type="button"></button>
-                </div>
-            </div>
-            <div class="element">
-                <img src="images/element-irish.jpg" alt="Фотография" class="element__image">
-                <div class="element__signature">
-                    <h2 class="element__title">Ирландия</h2>
-                    <button class="element__like" type="button"></button>
-                </div>
-            </div>
-            <div class="element">
-                <img src="images/element-russia.jpeg" alt="Фотография" class="element__image">
-                <div class="element__signature">
-                    <h2 class="element__title">Россия</h2>
-                    <button class="element__like" type="button"></button>
-                </div>
-            </div>
-            <div class="element">
-                <img src="images/element-italy.jpg" alt="Фотография" class="element__image">
-                <div class="element__signature">
-                    <h2 class="element__title">Италия</h2>
-                    <button class="element__like" type="button"></button>
-                </div>
-            </div>
-            <div class="element">
-                <img src="images/element-usa.jpeg" alt="Фотография" class="element__image">
-                <div class="element__signature">
-                    <h2 class="element__title">США</h2>
-                    <button class="element__like" type="button"></button>
-                </div>
-            </div>
-        </section>
+        <ul class="elements"></ul>
     </main>
     <footer class="footer">
         <p class="footer__copyright">&#169; 2022. Максим Антонов</p>
     </footer>
-    <div class="popup">
+
+    <div class="popup popup_type_edit">
         <div class="popup__container">
             <button class="popup__close-button opacity" type="button"></button>
             <form class="popup__form" id="form__edit" name="form__edit">
                 <h3 class="popup__title">Редактировать профиль</h3>
-                <input class="popup__input popup__input_type_name" type="text" id="edit__name" name="name"
-                    value="" />
-                <input class="popup__input popup__input_type_job" type="text" id="edit__job" name="job"
-                    value="" />
+                <input class="popup__input popup__input_type_name" type="text" id="edit__name" name="name" value="" />
+                <input class="popup__input popup__input_type_job" type="text" id="edit__job" name="job" value="" />
                 <button class="popup__save-button" type="submit">Сохранить</button>
             </form>
         </div>
     </div>
+
+    <div class="popup popup_type_add-card">
+        <div class="popup__container">
+            <button class="popup__close-button opacity" type="button"></button>
+            <form class="popup__form" id="form__add-card" name="form__add-card">
+                <h3 class="popup__title">Новое место</h3>
+                <input class="popup__input type="text" id="add__name-card" name="name-card"
+                    value=""  placeholder="Название"/>
+                <input class="popup__input" type="text" id="add__link-card" name="link-card"
+                    value="" placeholder="Ссылка на картинку"/>
+                <button class="popup__save-button" type="submit">Создать</button>
+            </form>
+        </div>
+    </div>
+
+    <template id="template-card">
+        <li class="element">
+            <img alt="Фотография" class="element__image">
+            <button class="element__trash" type="button"></button>
+            <div class="element__signature">
+                <h2 class="element__title"></h2>
+                <button class="element__like" type="button"></button>
+            </div>
+        </li>
+    </template>
+
     <script src="script/index.js"></script>
 </body>
 
