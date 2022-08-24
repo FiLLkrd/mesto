@@ -46,18 +46,26 @@
             <button class="popup__close-button popup__close-button_type_add opacity" type="button"></button>
             <form class="popup__form popup__form_type_add-card" id="form__add-card" name="form__add-card">
                 <h3 class="popup__title">Новое место</h3>
-                <input class="popup__input popup__input_type_name-card" type="text" id="add__name-card" name="name-card"
+                <input class="popup__input popup__input_type_title" type="text" id="add__name-card" name="name-card"
                     value=""  placeholder="Название"/>
-                <input class="popup__input popup__input_type_link-card" type="text" id="add__link-card" name="link-card"
+                <input class="popup__input popup__input_type_link" type="text" id="add__link-card" name="link-card"
                     value="" placeholder="Ссылка на картинку"/>
                 <button class="popup__save-button" type="submit">Создать</button>
             </form>
         </div>
     </div>
 
+    <div class="popup popup_type_full">
+        <figure class="popup__full">
+            <button class="popup__close-button popup__close-button_type_full" type="button"></button>
+            <img class="popup__fullscreen">
+            <figcaption class="popup__cap"></figcaption>
+        </figure>
+    </div>
+
     <template id="template-card">
         <li class="element">
-            <img alt="Фотография" class="element__image">
+            <a><img alt="Фотография" class="element__image"></a>
             <button class="element__trash" type="button"></button>
             <div class="element__signature">
                 <h2 class="element__title"></h2>

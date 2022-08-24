@@ -50,10 +50,9 @@ const popupJob = document.querySelector('.popup__input_type_job');
 //Переменные для работы с модальным окном добавления новой карточки
 
 const formCard = document.querySelector('.popup__form_type_add-card');
-const cardName = document.querySelector('.element__title');
-const cardLink = document.querySelector('.element__image');
-const popupCardName = document.querySelector('.popup__input_type_name-card');
-const popupCardLink = document.querySelector('.popup__input_type_link-card');
+
+const popupCardName = document.querySelector('.popup__input_type_title');
+const popupCardLink = document.querySelector('.popup__input_type_link');
 
 //Переменные для добавления набора карточек из массива на страницу при загрузке (стандартные карточки)
 
@@ -61,6 +60,12 @@ const elementsContainer = document.querySelector('.elements');
 const templateContainer = document.querySelector('#template-card').content;
 const elementCards = document.querySelector('.elements');
 const elementCard = document.createElement('li')
+
+const image = document.querySelector('.element__image');
+const popupFull = document.querySelector('.popup_type_full');
+
+
+
 
 
 
@@ -77,29 +82,47 @@ function render() {
   }
 
   function renderCard({ name, link }) {
-    const templateElement = templateContainer
-      .querySelector(".element")
-      .cloneNode(true);
+    const templateElement = templateContainer.querySelector(".element").cloneNode(true);
+
       templateElement.querySelector(".element__title").textContent = name;
       templateElement.querySelector(".element__image").src = link;
 
-      //Проставляем лайк, смена прозрачного лайка на закрашенный
+
+
+            //Проставляем лайк, смена прозрачного лайка на закрашенный
   
-      templateElement.querySelector('.element__like').addEventListener('click', function (evt){
-          evt.target.classList.toggle('element__like_active');
-      });
-
-        //Удаление карточки при нажатии на иконку "удалить"
-
-      templateElement.querySelector('.element__trash').addEventListener('click', function(evt){
-        evt.target.closest('.element');
-        templateElement.remove();
-      });
+            templateElement.querySelector('.element__like').addEventListener('click', function (evt){
+                evt.target.classList.toggle('element__like_active');
+            });
       
+              //Удаление карточки при нажатии на иконку "удалить"
+      
+            templateElement.querySelector('.element__trash').addEventListener('click', function(evt){
+              evt.target.closest('.element');
+              templateElement.remove();
+            });
+
     elementsContainer.prepend(templateElement);
   }
 
   render();
+
+  function handleSubmit(e) {
+    e.preventDefault();
+
+    const nameCard = popupCardName.value;
+    const linkCard = popupCardLink.value;
+    popupCardName.value = '';
+    popupCardLink.value = '';
+
+    renderCard(nameCard, linkCard);
+    closePopupAdd();
+
+    }
+
+    function openPopupFull () {
+        popupFull.classList.add('popup_opened');
+    }
 
   
 //Функция закрытия модального окна для создания карточки
@@ -113,6 +136,7 @@ function closePopupAdd() {
 
 function openPopupAdd() {
     popupAdd.classList.add('popup_opened');
+    
     
 }
 
@@ -131,6 +155,7 @@ function openPopup() {
     popupJob.value = profileJob.textContent;
 }
 
+
 //Функция изменения данных о пользователе "сабмит" через модальное окно
 
 function formSubmitHandler(e) {
@@ -145,7 +170,7 @@ function formSubmitHandler(e) {
     closePopup();
 }
 
-
+formCard.addEventListener('submit', handleSubmit);
 
 profileForm.addEventListener('submit', formSubmitHandler);
 
@@ -156,6 +181,9 @@ buttonEditClose.addEventListener('click', closePopup);
 buttonAdd.addEventListener('click', openPopupAdd)
 
 buttonAddClose.addEventListener('click', closePopupAdd);
+
+image.addEventListener('click', openPopupFull);
+
 
 
 
