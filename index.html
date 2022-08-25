@@ -48,7 +48,7 @@
                 <h3 class="popup__title">Новое место</h3>
                 <input class="popup__input popup__input_type_title" type="text" id="add__name-card" name="name-card"
                     value=""  placeholder="Название"/>
-                <input class="popup__input popup__input_type_link" type="text" id="add__link-card" name="link-card"
+                <input class="popup__input popup__input_type_link" type="src" id="add__link-card" name="link-card"
                     value="" placeholder="Ссылка на картинку"/>
                 <button class="popup__save-button" type="submit">Создать</button>
             </form>
@@ -65,7 +65,7 @@
 
     <template id="template-card">
         <li class="element">
-            <a><img alt="Фотография" class="element__image"></a>
+            <img alt="Фотография" class="element__image">
             <button class="element__trash" type="button"></button>
             <div class="element__signature">
                 <h2 class="element__title"></h2>
@@ -74,7 +74,8 @@
         </li>
     </template>
 
-    <script src="script/index.js"></script>
+    <script src="./script/cards.js"></script>
+    <script src="./script/index.js"></script>
 </body>
 
 </html>
