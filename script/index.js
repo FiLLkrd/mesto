@@ -29,7 +29,7 @@ const popupCardLink = document.querySelector('.popup__input_type_link');
 const elementsContainer = document.querySelector('.elements');
 const templateContainer = document.querySelector('#template-card').content;
 const elementCards = document.querySelector('.elements');
-const elementCard = document.createElement('li')
+const elementCard = document.createElement('li');
 
 //Переменные для открытия фото на весь экран
 
@@ -122,14 +122,11 @@ function openPopup() {
 }
 //Функция изменения данных о пользователе "сабмит" через модальное окно
 
-function editSubmitHandler(e) {
+function handleditSubmit(e) {
     e.preventDefault();
 
-    let popupNameInput = popupName.value;
-    let popupJobInput = popupJob.value;
-  
-    profileName.textContent = popupNameInput;
-    profileJob.textContent = popupJobInput;
+    profileName.textContent = popupName.value;
+    profileJob.textContent = popupJob.value; 
 
     closePopup();
 }
@@ -152,7 +149,7 @@ function openPopupFullImage(src, figcaption) {
 //Слушатели на кнопках и формах
 
 formCard.addEventListener('submit', handleSubmit);
-profileForm.addEventListener('submit', editSubmitHandler);
+profileForm.addEventListener('submit', handleditSubmit);
 buttonEdit.addEventListener('click', openPopup);
 buttonEditClose.addEventListener('click', closePopup);
 buttonAdd.addEventListener('click', openPopupAdd)
