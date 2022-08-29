@@ -1,6 +1,6 @@
 //открытие модального окна редактирования имени и деятельности пользователя
 
-const popup = document.querySelector('.popup');
+const popupEdit = document.querySelector('.popup_type_edit');
 const buttonEdit = document.querySelector('.profile__edit');
 const buttonEditClose = document.querySelector('.popup__close-button');
 
@@ -76,23 +76,25 @@ function render() {
 
   render();
 
-//Функция открытия фотографии на весь экран
 
-    function openPopupFull () {
-        popupFull.classList.add('popup_opened');
-    }
+  function openPopup (popup) {
+    popup.classList.add('popup_opened');
+}
 
-  
+function closePopup (popup) {
+  popup.classList.remove('popup_opened')
+}
+
 //Функция закрытия модального окна для создания карточки
 
 function closePopupAdd() {
-    popupAdd.classList.remove('popup_opened');
+  closePopup (popupAdd);
 }
 
 //Функция открытия модального окна для создания карточки
 
 function openPopupAdd() {
-    popupAdd.classList.add('popup_opened'); 
+  openPopup (popupAdd); 
 }
 
 //Функция добавления карточки новой, через форму
@@ -107,19 +109,20 @@ function handleSubmit(e) {
     closePopupAdd();
     }
 
-//Функция закрытия модального окна для редактирования пользователя
-
-function closePopup() {
-    popup.classList.remove('popup_opened');
-  }
-
   //Функция открытия модального окна для редактирования пользователя
 
-function openPopup() {
-    popup.classList.add('popup_opened');
+function openPopupEdit() {
+    openPopup (popupEdit);
     popupName.value = profileName.textContent;
     popupJob.value = profileJob.textContent;
 }
+
+//Функция закрытия модального окна для редактирования пользователя
+
+function closePopupEdit() {
+  closePopup(popupEdit);
+}
+
 //Функция изменения данных о пользователе "сабмит" через модальное окно
 
 function handleditSubmit(e) {
@@ -132,8 +135,7 @@ function handleditSubmit(e) {
 }
 
 function openPopupFullImage(src, figcaption) {
-    popupFull.classList.add('popup_opened');
-
+    openPopup (popupFull);
     imageFull.setAttribute('src', src);
     cap.textContent = figcaption;
  }
@@ -143,15 +145,15 @@ function openPopupFullImage(src, figcaption) {
  }
  
  function closePopupImage() {
-    popupFull.classList.remove('popup_opened');
+    closePopup (popupFull);
  }
 
 //Слушатели на кнопках и формах
 
 formCard.addEventListener('submit', handleSubmit);
 profileForm.addEventListener('submit', handleditSubmit);
-buttonEdit.addEventListener('click', openPopup);
-buttonEditClose.addEventListener('click', closePopup);
+buttonEdit.addEventListener('click', openPopupEdit);
+buttonEditClose.addEventListener('click', closePopupEdit);
 buttonAdd.addEventListener('click', openPopupAdd)
 buttonAddClose.addEventListener('click', closePopupAdd);
 buttonImageClose.addEventListener('click', closePopupImage);
