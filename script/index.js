@@ -40,41 +40,36 @@ const buttonImageClose = document.querySelector('.popup__close-button_type_full'
 
 //Функция перебора массива
 
-function render() {
-    initialCards.forEach(renderCard);
-  }
+initialCards.forEach(addCard);
 
 //Функция вывода карточек на страницу
 
-  function renderCard({ name, link }) {
+  function createCard(title, src) {
     const templateElement = templateContainer.querySelector('.element').cloneNode(true);
     const image = templateElement.querySelector('.element__image');
 
-      
-      image.src = link;
-      image.alt = name;
-      templateElement.querySelector('.element__title').textContent = name;
-
-
+      image.src = src;
+      image.alt = title;
+      templateElement.querySelector('.element__title').textContent = title;
       image.addEventListener('click', openPopupFullListen);
-
-            //Проставляем лайк, смена прозрачного лайка на закрашенный
-  
-            templateElement.querySelector('.element__like').addEventListener('click', function (evt){
-                evt.target.classList.toggle('element__like_active');
-            });
-      
-              //Удаление карточки при нажатии на иконку "удалить"
-      
-            templateElement.querySelector('.element__trash').addEventListener('click', function(evt){
-              evt.target.closest('.element');
-              templateElement.remove();
-            });
-
-    elementsContainer.prepend(templateElement);
+      templateElement.querySelector('.element__like').addEventListener('click', activeLike);
+      templateElement.querySelector('.element__trash').addEventListener('click', deleteCard);
+      return templateElement;
   }
 
-  render();
+  function activeLike (evt) {
+    evt.target.classList.toggle('element__like_active');
+}
+
+function deleteCard (evt) {
+  const templateElement = evt.target.closest('.element');
+  templateElement.remove();
+}
+
+
+  function addCard(card) {
+    elementCards.prepend(createCard(card.name, card.link));
+}
 
 
   function openPopup (popup) {
@@ -99,10 +94,10 @@ function openPopupAdd() {
 
 //Функция добавления карточки новой, через форму
 
-function handleSubmit(e) {
+function handleSubmitAdd(e) {
     e.preventDefault();
 
-    renderCard({
+    addCard({
         name: popupCardName.value,
         link: popupCardLink.value});
 
@@ -150,7 +145,7 @@ function openPopupFullImage(src, figcaption) {
 
 //Слушатели на кнопках и формах
 
-formCard.addEventListener('submit', handleSubmit);
+formCard.addEventListener('submit', handleSubmitAdd);
 profileForm.addEventListener('submit', handleditSubmit);
 buttonEdit.addEventListener('click', openPopupEdit);
 buttonEditClose.addEventListener('click', closePopupEdit);
