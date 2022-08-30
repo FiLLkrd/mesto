@@ -52,12 +52,12 @@ initialCards.forEach(addCard);
       image.alt = title;
       templateElement.querySelector('.element__title').textContent = title;
       image.addEventListener('click', openPopupFullListen);
-      templateElement.querySelector('.element__like').addEventListener('click', activeLike);
+      templateElement.querySelector('.element__like').addEventListener('click', handleLikeIcon);
       templateElement.querySelector('.element__trash').addEventListener('click', deleteCard);
       return templateElement;
   }
 
-  function activeLike (evt) {
+  function handleLikeIcon (evt) {
     evt.target.classList.toggle('element__like_active');
 }
 
@@ -120,13 +120,13 @@ function closePopupEdit() {
 
 //Функция изменения данных о пользователе "сабмит" через модальное окно
 
-function handleditSubmit(e) {
+function handleProfileFormSubmit(e) {
     e.preventDefault();
 
     profileName.textContent = popupName.value;
     profileJob.textContent = popupJob.value; 
 
-    closePopup();
+    closePopup(popupEdit);
 }
 
 function openPopupFullImage(src, figcaption) {
@@ -146,7 +146,7 @@ function openPopupFullImage(src, figcaption) {
 //Слушатели на кнопках и формах
 
 formCard.addEventListener('submit', handleSubmitAdd);
-profileForm.addEventListener('submit', handleditSubmit);
+profileForm.addEventListener('submit', handleProfileFormSubmit);
 buttonEdit.addEventListener('click', openPopupEdit);
 buttonEditClose.addEventListener('click', closePopupEdit);
 buttonAdd.addEventListener('click', openPopupAdd)
