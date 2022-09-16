@@ -18,10 +18,10 @@
             <img src="images/profile-avatar.jpg" alt="Аватар" class="profile__avatar">
             <div class="profile__info">
                 <h1 class="profile__name">Жак-Ив Кусто</h1>
-                <button class="profile__edit opacity" type="button"></button>
+                <button class="button__edit opacity" type="button"></button>
                 <p class="profile__job">Исследователь океана</p>
             </div>
-            <button class="profile__add opacity" type="button"></button>
+            <button class="button__add opacity" type="button"></button>
         </section>
         <ul class="elements"></ul>
     </main>
@@ -31,33 +31,37 @@
 
     <div class="popup popup_type_edit">
         <div class="popup__container">
-            <button class="popup__close-button opacity" type="button"></button>
-            <form class="popup__form" id="form__edit" name="form__edit">
+            <button class="button__close opacity" type="button"></button>
+            <form class="form form_type_edit" id="form__edit" name="form__edit" novalidate>
                 <h3 class="popup__title">Редактировать профиль</h3>
-                <input class="popup__input popup__input_type_name" type="text" id="edit__name" name="name" value="" />
-                <input class="popup__input popup__input_type_job" type="text" id="edit__job" name="job" value="" />
-                <button class="popup__save-button" type="submit">Сохранить</button>
+                <input class="popup__input popup__input_type_name" type="text" id="edit__name" name="name" value="" minlength="2" maxlength="40" required>
+                <span id="nameError" class="error__visible"></span>
+                <input class="popup__input popup__input_type_job" type="text" id="edit__job" name="job" value="" minlength="2" maxlength="200" required>
+                <span id="jobError" class="error__visible"></span>
+                <button class="button__submit_type_active" type="submit">Сохранить</button>
             </form>
         </div>
     </div>
 
     <div class="popup popup_type_add-card">
         <div class="popup__container">
-            <button class="popup__close-button popup__close-button_type_add opacity" type="button"></button>
-            <form class="popup__form popup__form_type_add-card" id="form__add-card" name="form__add-card">
+            <button class="button__close button__close_type_add opacity" type="button"></button>
+            <form class="form form_type_add-card" id="form__add-card" name="form__add-card" novalidate>
                 <h3 class="popup__title">Новое место</h3>
                 <input class="popup__input popup__input_type_title" type="text" id="add__name-card" name="name-card"
-                    value=""  placeholder="Название"/>
-                <input class="popup__input popup__input_type_link" type="src" id="add__link-card" name="link-card"
-                    value="" placeholder="Ссылка на картинку"/>
-                <button class="popup__save-button" type="submit">Создать</button>
+                     placeholder="Название" minlength="2" maxlength="30" required>
+                    <span id="titleError" class="error__visible"></span>
+                <input class="popup__input popup__input_type_link" type="url" id="add__link-card" name="link-card"
+                    placeholder="Ссылка на картинку" required>
+                    <span id="urlError" class="error__visible"></span>
+                <button class="button__submit_type_active" type="submit">Создать</button>
             </form>
         </div>
     </div>
 
     <div class="popup popup_type_full">
         <figure class="popup__full">
-            <button class="popup__close-button popup__close-button_type_full opacity" type="button"></button>
+            <button class="button__close button__close_type_full opacity" type="button"></button>
             <img class="popup__fullscreen">
             <figcaption class="popup__cap"></figcaption>
         </figure>
@@ -76,6 +80,7 @@
 
     <script src="./script/cards.js"></script>
     <script src="./script/index.js"></script>
+    <script src="./script/validate.js"></script>
 </body>
 
 </html>

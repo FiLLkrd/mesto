@@ -1,26 +1,26 @@
 //открытие модального окна редактирования имени и деятельности пользователя
 
 const popupEdit = document.querySelector('.popup_type_edit');
-const buttonEdit = document.querySelector('.profile__edit');
-const buttonEditClose = document.querySelector('.popup__close-button');
+const buttonEdit = document.querySelector('.button__edit');
+const buttonEditClose = document.querySelector('.button__close');
 
 //открытие модального окна добавления новой карточки
 
 const popupAdd  = document.querySelector('.popup_type_add-card');
-const buttonAdd = document.querySelector('.profile__add');
-const buttonAddClose = document.querySelector('.popup__close-button_type_add');
+const buttonAdd = document.querySelector('.button__add');
+const buttonAddClose = document.querySelector('.button__close_type_add');
 
 //Переменные для работы с модальным окном редактирования пользователя 
 
 const profileName = document.querySelector('.profile__name');
 const profileJob = document.querySelector('.profile__job');
-const profileForm = document.querySelector('.popup__form');
+const profileForm = document.querySelector('.form_type_edit');
 const popupName = document.querySelector('.popup__input_type_name');
 const popupJob = document.querySelector('.popup__input_type_job');
 
 //Переменные для работы с модальным окном добавления новой карточки
 
-const formCard = document.querySelector('.popup__form_type_add-card');
+const formCard = document.querySelector('.form_type_add-card');
 const popupCardName = document.querySelector('.popup__input_type_title');
 const popupCardLink = document.querySelector('.popup__input_type_link');
 
@@ -36,7 +36,9 @@ const elementCard = document.createElement('li');
 const imageFull = document.querySelector('.popup__fullscreen');
 const cap = document.querySelector('.popup__cap');
 const popupFull = document.querySelector('.popup_type_full');
-const buttonImageClose = document.querySelector('.popup__close-button_type_full');
+const buttonImageClose = document.querySelector('.button__close_type_full');
+
+
 
 //Функция перебора массива
 
@@ -57,27 +59,60 @@ initialCards.forEach(addCard);
       return templateElement;
   }
 
+  //Функция: ставим лайк на карточке
+
   function handleLikeIcon (evt) {
     evt.target.classList.toggle('element__like_active');
 }
+
+//Функция удаления карточки со страницы
 
 function deleteCard (evt) {
   const templateElement = evt.target.closest('.element');
   templateElement.remove();
 }
 
+//Функция добавления новой карточки на страницуу
 
   function addCard(card) {
     elementCards.prepend(createCard(card.name, card.link));
 }
 
+// Функция: открываем модальное окно
 
   function openPopup (popup) {
-    popup.classList.add('popup_opened');
+  popup.classList.add('popup_opened');
+
+  document.addEventListener('keydown', handleClosePopupEscape);
+
+  popup.addEventListener('click', handleClosePopupOverlay);
 }
+
+// Функция: закрываем модальное окно
 
 function closePopup (popup) {
   popup.classList.remove('popup_opened')
+
+  popup.addEventListener('click', handleClosePopupOverlay);
+
+  document.addEventListener('keydown', handleClosePopupEscape);
+}
+
+ // Функция: закрываем модальное окно через кнопку Esc
+
+ function handleClosePopupEscape(evt) {
+  if (evt.key === 'Escape') {
+    const popupVisible = document.querySelector('.popup_opened');
+    closePopup(popupVisible);
+  }
+}
+
+ // Функция: закрываем модальное окно при клике вне модального окна
+
+function handleClosePopupOverlay(evt) {
+  if (evt.target === evt.currentTarget) {
+    closePopup(evt.target);
+  }
 }
 
 //Функция закрытия модального окна для создания карточки
