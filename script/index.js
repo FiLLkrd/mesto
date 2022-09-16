@@ -26,9 +26,9 @@ const popupCardLink = document.querySelector('.form__input_type_link');
 
 //Переменные для добавления набора карточек из массива на страницу при загрузке 
 
-const elementsContainer = document.querySelector('.elements');
+const elementsContainer = document.querySelector('.cards');
 const templateContainer = document.querySelector('#template-card').content;
-const elementCards = document.querySelector('.elements');
+const elementCards = document.querySelector('.cards');
 const elementCard = document.createElement('li');
 
 //Переменные для открытия фото на весь экран
@@ -47,28 +47,28 @@ initialCards.forEach(addCard);
 //Функция вывода карточек на страницу
 
   function createCard(title, src) {
-    const templateElement = templateContainer.querySelector('.element').cloneNode(true);
-    const image = templateElement.querySelector('.element__image');
+    const templateElement = templateContainer.querySelector('.card').cloneNode(true);
+    const image = templateElement.querySelector('.card__image');
 
       image.src = src;
       image.alt = title;
-      templateElement.querySelector('.element__title').textContent = title;
+      templateElement.querySelector('.card__title').textContent = title;
       image.addEventListener('click', openPopupFullListen);
-      templateElement.querySelector('.element__like').addEventListener('click', handleLikeIcon);
-      templateElement.querySelector('.element__trash').addEventListener('click', deleteCard);
+      templateElement.querySelector('.card__like').addEventListener('click', handleLikeIcon);
+      templateElement.querySelector('.card__trash').addEventListener('click', deleteCard);
       return templateElement;
   }
 
   //Функция: ставим лайк на карточке
 
   function handleLikeIcon (evt) {
-    evt.target.classList.toggle('element__like_active');
+    evt.target.classList.toggle('card__like_active');
 }
 
 //Функция удаления карточки со страницы
 
 function deleteCard (evt) {
-  const templateElement = evt.target.closest('.element');
+  const templateElement = evt.target.closest('.card');
   templateElement.remove();
 }
 

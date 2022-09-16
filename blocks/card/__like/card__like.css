@@ -1,4 +1,4 @@
-.element__like {
+.card__like {
     background-image: url(../../../images/element-like.svg);
     padding: 0;
     width: 22px;
@@ -10,6 +10,6 @@
     outline: none;
 }
 
-.element__like:hover {
+.card__like:hover {
     opacity: 0.5;
 }
