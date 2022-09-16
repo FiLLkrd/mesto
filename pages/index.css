@@ -39,14 +39,17 @@
 @import url(../blocks/popup/_type/_full/popup_type_full.css);
 @import url(../blocks/popup/__cap/popup__cap.css);
 
-@import url(../blocks/form/form.css);
 @import url(../blocks/form/__input/form__input.css);
 @import url(../blocks/form/__input/form__input-error.css);
 @import url(../blocks/form/__input/_type/form__input-error_type_visible.css);
+@import url(../blocks/form/__set/form__set.css);
+@import url(../blocks/form/__field/form__field.css);
 
 @import url(../blocks/footer/footer.css);
 @import url(../blocks/footer/__copyright/footer__copyrigh.css);
 
 @import url(../blocks/opacity/opacity.css);
+
+
 
 

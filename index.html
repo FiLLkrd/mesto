@@ -33,12 +33,21 @@
         <div class="popup__container">
             <button class="button__close opacity" type="button"></button>
             <form class="form form_type_edit" id="form__edit" name="form__edit" novalidate>
-                <h3 class="popup__title">Редактировать профиль</h3>
-                <input class="form__input form__input_type_name" type="text" id="edit__name" name="name" value="" minlength="2" maxlength="40" required>
-                <span id="nameError" class="error__visible"></span>
-                <input class="form__input form__input_type_job" type="text" id="edit__job" name="job" value="" minlength="2" maxlength="200" required>
-                <span id="jobError" class="error__visible"></span>
-                <button class="button__submit_type_active" type="submit">Сохранить</button>
+                <fieldset class="form__set">
+                    <h3 class="popup__title">Редактировать профиль</h3>
+                    <label class="form__field">
+                        <input class="form__input form__input_type_name" type="text" id="edit__name" name="name"
+                            value="" minlength="2" maxlength="40" required>
+                        <span id="nameError" class="error__visible"></span>
+                    </label>
+                    <label class="form__field">
+                        <input class="form__input form__input_type_job" type="text" id="edit__job" name="job" value=""
+                            minlength="2" maxlength="200" required>
+                        <span id="jobError" class="error__visible"></span>
+                    </label>
+                    <button class="button__submit_type_active" type="submit">Сохранить</button>
+                </fieldset>
+
             </form>
         </div>
     </div>
@@ -47,14 +56,20 @@
         <div class="popup__container">
             <button class="button__close button__close_type_add opacity" type="button"></button>
             <form class="form form_type_add-card" id="form__add-card" name="form__add-card" novalidate>
-                <h3 class="popup__title">Новое место</h3>
-                <input class="form__input form__input_type_title" type="text" id="add__name-card" name="name-card"
-                     placeholder="Название" minlength="2" maxlength="30" required>
-                    <span id="titleError" class="error__visible"></span>
-                <input class="form__input form__input_type_link" type="url" id="add__link-card" name="link-card"
-                    placeholder="Ссылка на картинку" required>
-                    <span id="urlError" class="error__visible"></span>
-                <button class="button__submit_type_active" type="submit">Создать</button>
+                <fieldset class="form__set">
+                    <h3 class="popup__title">Новое место</h3>
+                    <label class="form__field">
+                        <input class="form__input form__input_type_title" type="text" id="add__name-card"
+                            name="name-card" placeholder="Название" minlength="2" maxlength="30" required>
+                        <span id="titleError" class="error__visible"></span>
+                    </label>
+                    <label class="form__field">
+                        <input class="form__input form__input_type_link" type="url" id="add__link-card" name="link-card"
+                            placeholder="Ссылка на картинку" required>
+                        <span id="urlError" class="error__visible"></span>
+                    </label>
+                    <button class="button__submit_type_active" type="submit">Создать</button>
+                </fieldset>
             </form>
         </div>
     </div>
