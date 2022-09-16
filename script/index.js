@@ -33,7 +33,7 @@ const elementCard = document.createElement('li');
 
 //Переменные для открытия фото на весь экран
 
-const imageFull = document.querySelector('.popup__fullscreen');
+const imageFull = document.querySelector('.popup__full-image');
 const cap = document.querySelector('.popup__cap');
 const popupFull = document.querySelector('.popup_type_full');
 const buttonImageClose = document.querySelector('.button__close_type_full');
