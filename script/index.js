@@ -15,14 +15,14 @@ const buttonAddClose = document.querySelector('.button__close_type_add');
 const profileName = document.querySelector('.profile__name');
 const profileJob = document.querySelector('.profile__job');
 const profileForm = document.querySelector('.form_type_edit');
-const popupName = document.querySelector('.popup__input_type_name');
-const popupJob = document.querySelector('.popup__input_type_job');
+const popupName = document.querySelector('.form__input_type_name');
+const popupJob = document.querySelector('.form__input_type_job');
 
 //Переменные для работы с модальным окном добавления новой карточки
 
 const formCard = document.querySelector('.form_type_add-card');
-const popupCardName = document.querySelector('.popup__input_type_title');
-const popupCardLink = document.querySelector('.popup__input_type_link');
+const popupCardName = document.querySelector('.form__input_type_title');
+const popupCardLink = document.querySelector('.form__input_type_link');
 
 //Переменные для добавления набора карточек из массива на страницу при загрузке 
 
