@@ -40,10 +40,12 @@
 @import url(../blocks/popup/__cap/popup__cap.css);
 
 @import url(../blocks/form/__input/form__input.css);
-@import url(../blocks/form/__input/form__input-error.css);
-@import url(../blocks/form/__input/_type/form__input-error_type_visible.css);
 @import url(../blocks/form/__set/form__set.css);
 @import url(../blocks/form/__field/form__field.css);
+@import url(../blocks/form/__input/_type/_error/form__input_type_error.css);
+
+@import url(../blocks/error/error.css);
+@import url(../blocks/error/_active/error_active.css);
 
 @import url(../blocks/footer/footer.css);
 @import url(../blocks/footer/__copyright/footer__copyrigh.css);

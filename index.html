@@ -32,20 +32,20 @@
     <div class="popup popup_type_edit">
         <div class="popup__container">
             <button class="button__close opacity" type="button"></button>
-            <form class="form form_type_edit" id="form__edit" name="form__edit" novalidate>
+            <form class="form form_type_edit" id="form__edit" name="form__edit" method="POST" novalidate>
                 <fieldset class="form__set">
                     <h3 class="popup__title">Редактировать профиль</h3>
                     <label class="form__field">
-                        <input class="form__input form__input_type_name" type="text" id="edit__name" name="name"
+                        <input class="form__input form__input_type_name" type="text" id="editName" name="name"
                             value="" minlength="2" maxlength="40" required>
-                        <span id="nameError" class="error__visible"></span>
+                        <span id="editName-error" class="error"></span>
                     </label>
                     <label class="form__field">
-                        <input class="form__input form__input_type_job" type="text" id="edit__job" name="job" value=""
+                        <input class="form__input form__input_type_job" type="text" id="editJob" name="job" value=""
                             minlength="2" maxlength="200" required>
-                        <span id="jobError" class="error__visible"></span>
+                        <span id="editJob-error" class="error"></span>
                     </label>
-                    <button class="button__submit_type_active" type="submit">Сохранить</button>
+                    <button class="button__submit button__submit_type_active" type="submit">Сохранить</button>
                 </fieldset>
 
             </form>
@@ -59,16 +59,16 @@
                 <fieldset class="form__set">
                     <h3 class="popup__title">Новое место</h3>
                     <label class="form__field">
-                        <input class="form__input form__input_type_title" type="text" id="add__name-card"
+                        <input class="form__input form__input_type_title" type="text" id="addNameCard"
                             name="name-card" placeholder="Название" minlength="2" maxlength="30" required>
-                        <span id="titleError" class="error__visible"></span>
+                        <span id="addNameCard-error" class="error"></span>
                     </label>
                     <label class="form__field">
-                        <input class="form__input form__input_type_link" type="url" id="add__link-card" name="link-card"
+                        <input class="form__input form__input_type_link" type="url" id="addLinkCard" name="link-card"
                             placeholder="Ссылка на картинку" required>
-                        <span id="urlError" class="error__visible"></span>
+                        <span id="addLinkCard-error" class="error"></span>
                     </label>
-                    <button class="button__submit_type_active" type="submit">Создать</button>
+                    <button class="button__submit button__submit_type_active" type="submit">Создать</button>
                 </fieldset>
             </form>
         </div>
