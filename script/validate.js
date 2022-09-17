@@ -1,3 +1,4 @@
+//объект с элементами форма для валидации
 const validateConfig = {
     formSelector: '.form',
     inputSelector: '.form__input',
