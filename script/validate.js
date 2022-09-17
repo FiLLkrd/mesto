@@ -2,8 +2,8 @@
 const validateConfig = {
     formSelector: '.form',
     inputSelector: '.form__input',
-    submitButtonSelector: '.button__submit',
-    inactiveButtonClass: 'button__submit_type_disabled',
+    submitButtonSelector: '.popup__button',
+    inactiveButtonClass: 'popup__button_disabled',
     inputErrorClass: 'form__input_type_error',
     errorClass: 'error_active'
   }

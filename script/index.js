@@ -1,14 +1,14 @@
 //открытие модального окна редактирования имени и деятельности пользователя
 
 const popupEdit = document.querySelector('.popup_type_edit');
-const buttonEdit = document.querySelector('.button__edit');
-const buttonEditClose = document.querySelector('.button__close');
+const buttonEdit = document.querySelector('.profile__button_edit');
+const buttonEditClose = document.querySelector('.popup__button_close');
 
 //открытие модального окна добавления новой карточки
 
 const popupAdd  = document.querySelector('.popup_type_add-card');
-const buttonAdd = document.querySelector('.button__add');
-const buttonAddClose = document.querySelector('.button__close_type_add');
+const buttonAdd = document.querySelector('.profile__button_add');
+const buttonAddClose = document.querySelector('.popup__button_close_add');
 
 //Переменные для работы с модальным окном редактирования пользователя 
 
@@ -36,9 +36,9 @@ const elementCard = document.createElement('li');
 const imageFull = document.querySelector('.popup__full-image');
 const cap = document.querySelector('.popup__cap');
 const popupFull = document.querySelector('.popup_type_full');
-const buttonImageClose = document.querySelector('.button__close_type_full');
+const buttonImageClose = document.querySelector('.popup__button_close_full');
 
-
+const buttonSubmit = document.querySelector('.popup__button_submit');
 
 //Функция перебора массива
 
