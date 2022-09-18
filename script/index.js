@@ -4,6 +4,7 @@ const popupEdit = document.querySelector('.popup_type_edit');
 const buttonEdit = document.querySelector('.profile__button_edit');
 const buttonEditClose = document.querySelector('.popup__button_close');
 
+
 //открытие модального окна добавления новой карточки
 
 const popupAdd  = document.querySelector('.popup_type_add-card');
@@ -38,7 +39,9 @@ const cap = document.querySelector('.popup__cap');
 const popupFull = document.querySelector('.popup_type_full');
 const buttonImageClose = document.querySelector('.popup__button_close_full');
 
-const buttonSubmit = document.querySelector('.popup__button_submit');
+const buttonSubmitAdd = popupAdd.querySelector('.popup__button_submit');
+const buttonSubmitEdit = popupEdit.querySelector('.popup__button_submit');
+
 
 //Функция перебора массива
 
@@ -88,14 +91,25 @@ function deleteCard (evt) {
   popup.addEventListener('click', handleClosePopupOverlay);
 }
 
+function handleEditClickToForm() {
+  handleProfileFormSubmit();
+  openPopup(popupEdit);
+  setActiveButtonState(buttonSubmitEdit, validateConfig);
+}
+
+function handleAddClickToForm() {
+  openPopupAdd();
+  setInactiveButtonState(buttonSubmitAdd, validateConfig);
+}
+
 // Функция: закрываем модальное окно
 
 function closePopup (popup) {
   popup.classList.remove('popup_opened')
 
-  popup.addEventListener('click', handleClosePopupOverlay);
+  popup.removeEventListener('click', handleClosePopupOverlay);
 
-  document.addEventListener('keydown', handleClosePopupEscape);
+  document.removeEventListener('keydown', handleClosePopupEscape);
 }
 
  // Функция: закрываем модальное окно через кнопку Esc
@@ -135,8 +149,10 @@ function handleSubmitAdd(e) {
     addCard({
         name: popupCardName.value,
         link: popupCardLink.value});
-
+    
     closePopupAdd();
+    e.target.reset();
+    
     }
 
   //Функция открытия модального окна для редактирования пользователя
@@ -164,9 +180,10 @@ function handleProfileFormSubmit(e) {
     closePopup(popupEdit);
 }
 
-function openPopupFullImage(src, figcaption) {
+function openPopupFullImage(link, figcaption) {
     openPopup (popupFull);
-    imageFull.setAttribute('src', src);
+    imageFull.src = link;
+    imageFull.alt = figcaption;
     cap.textContent = figcaption;
  }
  
@@ -180,6 +197,8 @@ function openPopupFullImage(src, figcaption) {
 
 //Слушатели на кнопках и формах
 
+buttonEdit.addEventListener('click', handleEditClickToForm);
+buttonAdd.addEventListener('click', handleAddClickToForm);
 formCard.addEventListener('submit', handleSubmitAdd);
 profileForm.addEventListener('submit', handleProfileFormSubmit);
 buttonEdit.addEventListener('click', openPopupEdit);

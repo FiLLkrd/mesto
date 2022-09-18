@@ -41,6 +41,16 @@ function showInputError (formElement, inputElement, errorMessage, config) {
   }); 
   }
   
+    // Функция - меняет класс кнопки, связана с hasInvalidInput, если одно поле не валидно
+  //кнопка будет не активна, иначе активна
+
+  function toggleButtonState(inputList, buttonElement, config) {
+    if (hasInvalidInput(inputList)) {
+      setInactiveButtonState(buttonElement, config);
+    } else {
+      setActiveButtonState(buttonElement, config);
+    }
+  }
   
   // Функция деактивации кнопки
   function setInactiveButtonState(buttonElement, config) {
@@ -54,17 +64,6 @@ function showInputError (formElement, inputElement, errorMessage, config) {
     buttonElement.disabled = false;
   }
 
-  // Функция - меняет класс кнопки, связана с hasInvalidInput, если одно поле не валидно
-  //кнопка будет не активна, иначе активна
-
-  function toggleButtonState(inputList, buttonElement, config) {
-    if (hasInvalidInput(inputList)) {
-      setInactiveButtonState(buttonElement, config);
-    } else {
-      setActiveButtonState(buttonElement, config);
-    }
-  }
-  
   //функция прослушивания сабмита на импутах (подключаем массив элементов форм)
 
   function setEventListeners(formElement, config) {
@@ -90,7 +89,6 @@ function showInputError (formElement, inputElement, errorMessage, config) {
         evt.preventDefault();
       });
 
-      
       setEventListeners(formElement, config);
     });
   }
