@@ -91,17 +91,6 @@ function deleteCard (evt) {
   popup.addEventListener('click', handleClosePopupOverlay);
 }
 
-function handleEditClickToForm() {
-  handleProfileFormSubmit();
-  openPopup(popupEdit);
-  setActiveButtonState(buttonSubmitEdit, validateConfig);
-}
-
-function handleAddClickToForm() {
-  openPopupAdd();
-  setInactiveButtonState(buttonSubmitAdd, validateConfig);
-}
-
 // Функция: закрываем модальное окно
 
 function closePopup (popup) {
@@ -155,12 +144,23 @@ function handleSubmitAdd(e) {
     
     }
 
+    function handleAddClickToForm() {
+      openPopupAdd();
+      setInactiveButtonState(buttonSubmitAdd, validateConfig);
+    }
+
   //Функция открытия модального окна для редактирования пользователя
 
 function openPopupEdit() {
     openPopup (popupEdit);
     popupName.value = profileName.textContent;
     popupJob.value = profileJob.textContent;
+}
+
+function handleEditClickToForm() {
+  openPopupEdit();
+  openPopup(popupEdit);
+  setActiveButtonState(buttonSubmitEdit, validateConfig);
 }
 
 //Функция закрытия модального окна для редактирования пользователя
@@ -201,9 +201,7 @@ buttonEdit.addEventListener('click', handleEditClickToForm);
 buttonAdd.addEventListener('click', handleAddClickToForm);
 formCard.addEventListener('submit', handleSubmitAdd);
 profileForm.addEventListener('submit', handleProfileFormSubmit);
-buttonEdit.addEventListener('click', openPopupEdit);
 buttonEditClose.addEventListener('click', closePopupEdit);
-buttonAdd.addEventListener('click', openPopupAdd)
 buttonAddClose.addEventListener('click', closePopupAdd);
 buttonImageClose.addEventListener('click', closePopupImage);
 
