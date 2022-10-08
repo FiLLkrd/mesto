@@ -1,9 +1,13 @@
+//импорты 
+import {initialCards} from './data.js';
+import Card from './Card.js';
+import FormValidator from './FormValidator.js';
+
 //открытие модального окна редактирования имени и деятельности пользователя
 
 const popupEdit = document.querySelector('.popup_type_edit');
 const buttonEdit = document.querySelector('.profile__button_edit');
 const buttonEditClose = document.querySelector('.popup__button_close');
-
 
 //открытие модального окна добавления новой карточки
 
@@ -28,66 +32,41 @@ const popupCardLink = document.querySelector('.form__input_type_link');
 //Переменные для добавления набора карточек из массива на страницу при загрузке 
 
 const elementsContainer = document.querySelector('.cards');
-const templateContainer = document.querySelector('#template-card').content;
-const elementCards = document.querySelector('.cards');
-const elementCard = document.createElement('li');
 
 //Переменные для открытия фото на весь экран
 
 const imageFull = document.querySelector('.popup__full-image');
 const cap = document.querySelector('.popup__cap');
-const popupFull = document.querySelector('.popup_type_full');
+const popupImage = document.querySelector('.popup_type_full');
 const buttonImageClose = document.querySelector('.popup__button_close_full');
 
-const buttonSubmitAdd = popupAdd.querySelector('.popup__button_submit');
-const buttonSubmitEdit = popupEdit.querySelector('.popup__button_submit');
+//объект с элементами форма для валидации
 
-
-//Функция перебора массива
-
-initialCards.forEach(addCard);
-
-//Функция вывода карточек на страницу
-
-  function createCard(title, src) {
-    const templateElement = templateContainer.querySelector('.card').cloneNode(true);
-    const image = templateElement.querySelector('.card__image');
-
-      image.src = src;
-      image.alt = title;
-      templateElement.querySelector('.card__title').textContent = title;
-      image.addEventListener('click', openPopupFullListen);
-      templateElement.querySelector('.card__like').addEventListener('click', handleLikeIcon);
-      templateElement.querySelector('.card__trash').addEventListener('click', deleteCard);
-      return templateElement;
-  }
-
-  //Функция: ставим лайк на карточке
-
-  function handleLikeIcon (evt) {
-    evt.target.classList.toggle('card__like_active');
+const validateConfig = {
+  formSelector: '.form',
+  inputSelector: '.form__input',
+  submitButtonSelector: '.popup__button_submit',
+  inactiveButtonClass: 'popup__button_disabled',
+  inputErrorClass: 'form__input_type_error',
+  errorClass: 'error_active'
 }
 
-//Функция удаления карточки со страницы
+//добавляем валидации на модальные окна редактирования и добавления карточек
 
-function deleteCard (evt) {
-  const templateElement = evt.target.closest('.card');
-  templateElement.remove();
-}
+const formEditValidator = new FormValidator(validateConfig, popupEdit);
+const formAddValidator = new FormValidator(validateConfig, popupAdd);
 
-//Функция добавления новой карточки на страницуу
+//Вызов функций валидации
 
-  function addCard(card) {
-    elementCards.prepend(createCard(card.name, card.link));
-}
+formEditValidator.enableValidation();
+formAddValidator.enableValidation();
+
 
 // Функция: открываем модальное окно
 
-  function openPopup (popup) {
+function openPopup (popup) {
   popup.classList.add('popup_opened');
-
   document.addEventListener('keydown', handleClosePopupEscape);
-
   popup.addEventListener('click', handleClosePopupOverlay);
 }
 
@@ -95,10 +74,26 @@ function deleteCard (evt) {
 
 function closePopup (popup) {
   popup.classList.remove('popup_opened')
-
   popup.removeEventListener('click', handleClosePopupOverlay);
-
   document.removeEventListener('keydown', handleClosePopupEscape);
+}
+
+//Функция закрытия модального окна для редактирования пользователя
+
+function closePopupEdit() {
+  closePopup(popupEdit);
+}
+
+//Функция закрытия модального окна для создания карточки
+
+function closePopupAdd() {
+  closePopup (popupAdd);
+}
+
+//Закрытие модального окна картинки карточки на весь экран
+
+function closePopupImage() {
+  closePopup(popupImage);
 }
 
  // Функция: закрываем модальное окно через кнопку Esc
@@ -118,36 +113,40 @@ function handleClosePopupOverlay(evt) {
   }
 }
 
-//Функция закрытия модального окна для создания карточки
+//Функция вывода карточек на страницу
 
-function closePopupAdd() {
-  closePopup (popupAdd);
+function createCard(data) {
+  const newCard = new Card(data, '#template-card', openImageFullscreen);
+  return newCard.generateCard();
 }
 
-//Функция открытия модального окна для создания карточки
+//Функция добавления новой карточки на страницу
 
-function openPopupAdd() {
-  openPopup (popupAdd); 
+initialCards.forEach((item) => {
+  const cardElement = createCard(item);
+  elementsContainer.prepend(cardElement);
+});
+
+//Функция клика по кнопке добавления карточки, открываем со сброшеной валидацией
+function handleAddClickToForm() {
+  openPopup(popupAdd);
+  formAddValidator.resetValidation();
 }
 
 //Функция добавления карточки новой, через форму
 
-function handleSubmitAdd(e) {
-    e.preventDefault();
-
-    addCard({
-        name: popupCardName.value,
-        link: popupCardLink.value});
-    
-    closePopupAdd();
-    e.target.reset();
-    
-    }
-
-    function handleAddClickToForm() {
-      openPopupAdd();
-      setInactiveButtonState(buttonSubmitAdd, validateConfig);
-    }
+function handleSubmitAdd(evt) {
+  evt.preventDefault();
+  const title = popupCardName.value;
+  const link = popupCardLink.value;
+  const data = {
+    name: title,
+    link: link
+  }
+  elementsContainer.prepend(createCard(data));
+  closePopupAdd();
+  formCard.reset();
+}
 
   //Функция открытия модального окна для редактирования пользователя
 
@@ -157,16 +156,11 @@ function openPopupEdit() {
     popupJob.value = profileJob.textContent;
 }
 
+//Функция клика по  кнопке редактирования профиля, открываем со сброшеной валидацией
+
 function handleEditClickToForm() {
   openPopupEdit();
-  openPopup(popupEdit);
-  setActiveButtonState(buttonSubmitEdit, validateConfig);
-}
-
-//Функция закрытия модального окна для редактирования пользователя
-
-function closePopupEdit() {
-  closePopup(popupEdit);
+  formEditValidator.resetValidation();
 }
 
 //Функция изменения данных о пользователе "сабмит" через модальное окно
@@ -180,20 +174,14 @@ function handleProfileFormSubmit(e) {
     closePopup(popupEdit);
 }
 
-function openPopupFullImage(link, figcaption) {
-    openPopup (popupFull);
-    imageFull.src = link;
-    imageFull.alt = figcaption;
-    cap.textContent = figcaption;
- }
- 
- function openPopupFullListen(evt) {
-    openPopupFullImage(evt.target.getAttribute('src'), evt.target.getAttribute('alt'));
- }
- 
- function closePopupImage() {
-    closePopup (popupFull);
- }
+//Функция передачи значений в открытую фотографию карточки на весь экран
+
+ function openImageFullscreen(name, link) {
+  imageFull.src = link;
+  imageFull.alt = name;
+  cap.textContent = name;
+  openPopup(popupImage); 
+}
 
 //Слушатели на кнопках и формах
 

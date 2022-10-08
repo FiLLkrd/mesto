@@ -17,9 +17,9 @@
         <section class="profile">
             <img src="images/profile-avatar.jpg" alt="Аватар" class="profile__avatar">
             <div class="profile__info">
-                <h1 class="profile__name">Жак-Ив Кусто</h1>
+                <h1 class="profile__name">Максим</h1>
                 <button class="profile__button profile__button_edit opacity" type="button"></button>
-                <p class="profile__job">Исследователь океана</p>
+                <p class="profile__job">Учусь Front-end-У</p>
             </div>
             <button class="profile__button profile__button_add opacity" type="button"></button>
         </section>
@@ -83,19 +83,16 @@
     </div>
 
     <template id="template-card">
-        <li class="card">
+        <article class="card">
             <img alt="Фотография" class="card__image">
             <button class="card__trash" type="button"></button>
             <div class="card__signature">
                 <h2 class="card__title"></h2>
                 <button class="card__like" type="button"></button>
             </div>
-        </li>
+        </article>
     </template>
-
-    <script src="./script/cards.js"></script>
-    <script src="./script/index.js"></script>
-    <script src="./script/validate.js"></script>
+    <script defer type="module" src="./script/index.js"></script>
 </body>
 
 </html>
