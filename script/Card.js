@@ -59,12 +59,4 @@ export default class Card {
         const cardElement = this._element.closest('.card');
         cardElement.remove();
     }
-
-    //Функция открытия картинки  карточки на весь экран
-    _handleCardClick(){
-        document.querySelector('.popup_type_full').classList.add('popup_opened');
-        document.querySelector('.popup__full-image').setAttribute('src', this._link);
-        document.querySelector('.popup__full-image').setAttribute('alt', this._name);
-        document.querySelector('.popup__cap').textContent = this._name;
-    }
 }
