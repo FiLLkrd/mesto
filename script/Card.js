@@ -1,10 +1,10 @@
 //Задаем Class карточки, экспортируем в основной файл JS - index.js
 export default class Card {
-    constructor(data, templateSelector, openPopupHandler){
+    constructor(data, templateSelector, handleCardClick){
         this._name = data.name;
         this._link = data.link;
         this._templateSelector = templateSelector;
-        this._openPopupHandler = openPopupHandler;
+        this._handleCardClick = handleCardClick;
     }
 
     //Находим template в html
@@ -20,31 +20,38 @@ export default class Card {
 //Формируем карточку используя элементы template
     generateCard(){
         this._element = this._getTemplate();
-        this._setEventListeners (); 
+        this._cardImage = this._element.querySelector('.card__image');
+        this._cardTitle = this._element.querySelector('.card__title');
 
-        this._element.querySelector('.card__title').textContent = this._name;
-        this._element.querySelector('.card__image').src = this._link;
-        this._element.querySelector('.card__image').alt = this._name;
+        this._cardTitle.textContent = this._name;
+        this._cardImage.src = this._link;
+        this._cardImage.alt = this._name;
+
+        this._setEventListeners (); 
 
         return this._element;
     }
 
     //Добавляем слушатели на элементы карточки (удаление,  лайк, открытие картинки  на весь экран)
     _setEventListeners (){
-        this._element.querySelector('.card__like').addEventListener('click', () =>{
+        this._likeButton = this._element.querySelector('.card__like');
+        this._deleteButton = this._element.querySelector('.card__trash');
+
+        this._likeButton.addEventListener('click', () =>{
             this._handleLikeClick();
         })
-        this._element.querySelector('.card__trash').addEventListener('click', () =>{
+        this._deleteButton.addEventListener('click', () =>{
             this._handleDeleteClick();
         })
-        this._element.querySelector('.card__image').addEventListener('click', () =>{
-            this._handleImageClick();
-        })
+
+        this._cardImage.addEventListener('click', () => {
+            this._handleCardClick(this._name, this._link)
+          });
     }
 
     //Функция клика по кнопке лайка
     _handleLikeClick(){
-        this._element.querySelector('.card__like').classList.toggle('card__like_active');
+        this._likeButton.classList.toggle('card__like_active');
     }
 
     //Функция клика по кнопке удаления карточки
@@ -54,7 +61,7 @@ export default class Card {
     }
 
     //Функция открытия картинки  карточки на весь экран
-    _handleImageClick(){
+    _handleCardClick(){
         document.querySelector('.popup_type_full').classList.add('popup_opened');
         document.querySelector('.popup__full-image').setAttribute('src', this._link);
         document.querySelector('.popup__full-image').setAttribute('alt', this._name);

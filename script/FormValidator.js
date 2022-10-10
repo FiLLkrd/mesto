@@ -58,9 +58,9 @@ export default class FormValidator {
       }
     }
 
-    //Функция валидации
-    
-    enableValidation() {
+    //Слушатели
+
+    _setEventListeners(){
       this._toggleButtonState();
     
       this._inputList.forEach((inputElement) => {
@@ -69,6 +69,12 @@ export default class FormValidator {
           this._toggleButtonState();
         })
       })
+    }
+
+    //Функция валидации
+    
+    enableValidation() {
+      this._setEventListeners();
     }
     
 //Сброс валидации

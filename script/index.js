@@ -116,7 +116,7 @@ function handleClosePopupOverlay(evt) {
 //Функция вывода карточек на страницу
 
 function createCard(data) {
-  const newCard = new Card(data, '#template-card', openImageFullscreen);
+  const newCard = new Card(data, '#template-card', handleCardClick);
   return newCard.generateCard();
 }
 
@@ -176,7 +176,7 @@ function handleProfileFormSubmit(e) {
 
 //Функция передачи значений в открытую фотографию карточки на весь экран
 
- function openImageFullscreen(name, link) {
+ function handleCardClick(name, link) {
   imageFull.src = link;
   imageFull.alt = name;
   cap.textContent = name;
