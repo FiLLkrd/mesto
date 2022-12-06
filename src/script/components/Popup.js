@@ -1,5 +1,5 @@
 //экспортируем класс, для использования в index.js
-export class Popup{
+export default class Popup{
     constructor (popup) {
         this._popupSelector = popup;
         this._handleEscClose = this._handleEscClose.bind(this);
@@ -25,5 +25,13 @@ export class Popup{
     }
 
     //Слушатель клика на кнопку закрытия или вне Popup, паблик
-    setEventListeners(){}
+    setEventListeners(){
+        this._popupSelector.addEventListener('mousedown', (evt) => {
+            if(evt.target.classList.contains('popup') || evt.target.classList.contains('popup__button_close')){
+                this.close();
+            }
+        });
+    }
+    
 }
+

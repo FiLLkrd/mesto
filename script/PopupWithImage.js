@@ -1,9 +1,0 @@
-class PopupWithImage {
-    constructor(){
-
-    }
-
-    open(){
-        
-    }
-}
