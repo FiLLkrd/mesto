@@ -1,5 +1,8 @@
 //массив данных для создания стандартных карточек при загрузке страницы
-export const initialCards = [
+export {initialCards, validateConfig }
+
+
+const initialCards = [
     {
       name: 'Краснодар',
       link: 'https://images.unsplash.com/photo-1603110934143-14c37c138d9b?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=774&q=80'
@@ -25,3 +28,17 @@ export const initialCards = [
       link: 'https://images.unsplash.com/photo-1652167934538-c0b4ab5ced1e?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1770&q=80'
     }
   ]; 
+
+
+  //объект с элементами форма для валидации
+
+const validateConfig = {
+    formSelector: '.form',
+    inputSelector: '.form__input',
+    submitButtonSelector: '.popup__button_submit',
+    inactiveButtonClass: 'popup__button_disabled',
+    inputErrorClass: 'form__input_type_error',
+    errorClass: 'error_active'
+  }
+
+  

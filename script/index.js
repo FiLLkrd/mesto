@@ -1,6 +1,7 @@
 //импорты 
-import {initialCards} from './data.js';
+import {initialCards, validateConfig} from './data.js';
 import Card from './Card.js';
+import { Popup } from './Popup.js';
 import FormValidator from './FormValidator.js';
 
 //открытие модального окна редактирования имени и деятельности пользователя
@@ -40,16 +41,6 @@ const cap = document.querySelector('.popup__cap');
 const popupImage = document.querySelector('.popup_type_full');
 const buttonImageClose = document.querySelector('.popup__button_close_full');
 
-//объект с элементами форма для валидации
-
-const validateConfig = {
-  formSelector: '.form',
-  inputSelector: '.form__input',
-  submitButtonSelector: '.popup__button_submit',
-  inactiveButtonClass: 'popup__button_disabled',
-  inputErrorClass: 'form__input_type_error',
-  errorClass: 'error_active'
-}
 
 //добавляем валидации на модальные окна редактирования и добавления карточек
 
@@ -62,33 +53,37 @@ formEditValidator.enableValidation();
 formAddValidator.enableValidation();
 
 
-// Функция: открываем модальное окно
+//Создаем экземпляр класс Popup, вызываем метод открытия Popup, добавляем слушатели на кнопки по клику
+//Редактирование профиля
 
-function openPopup (popup) {
-  popup.classList.add('popup_opened');
-  document.addEventListener('keydown', handleClosePopupEscape);
-  popup.addEventListener('click', handleClosePopupOverlay);
-}
+const userProfilePopup = new Popup (popupEdit);
+  buttonEdit.addEventListener('click', () => {
+    userProfilePopup.open();
+  });
+  buttonEditClose.addEventListener('click', () => {
+    userProfilePopup.close();
+  });
 
-// Функция: закрываем модальное окно
+//Добавление карточек
+const addCardPopup = new Popup (popupAdd);
+  buttonAdd.addEventListener('click', () => {
+    addCardPopup.open();
+  });
+  buttonAddClose.addEventListener('click', () => {
+    addCardPopup.close();
+  });
 
-function closePopup (popup) {
-  popup.classList.remove('popup_opened')
-  popup.removeEventListener('click', handleClosePopupOverlay);
-  document.removeEventListener('keydown', handleClosePopupEscape);
-}
 
-//Функция закрытия модального окна для редактирования пользователя
 
-function closePopupEdit() {
-  closePopup(popupEdit);
-}
 
-//Функция закрытия модального окна для создания карточки
 
-function closePopupAdd() {
-  closePopup (popupAdd);
-}
+//Функция: закрываем модальное окно
+
+ function closePopup (popup) {
+   popup.classList.remove('popup_opened')
+   popup.removeEventListener('click', handleClosePopupOverlay);
+   document.removeEventListener('keydown', handleClosePopupEscape);
+ }
 
 //Закрытие модального окна картинки карточки на весь экран
 
@@ -129,7 +124,7 @@ initialCards.forEach((item) => {
 
 //Функция клика по кнопке добавления карточки, открываем со сброшеной валидацией
 function handleAddClickToForm() {
-  openPopup(popupAdd);
+  
   formAddValidator.resetValidation();
 }
 
@@ -150,16 +145,12 @@ function handleSubmitAdd(evt) {
 
   //Функция открытия модального окна для редактирования пользователя
 
-function openPopupEdit() {
-    openPopup (popupEdit);
-    popupName.value = profileName.textContent;
-    popupJob.value = profileJob.textContent;
-}
+
 
 //Функция клика по  кнопке редактирования профиля, открываем со сброшеной валидацией
 
 function handleEditClickToForm() {
-  openPopupEdit();
+ 
   formEditValidator.resetValidation();
 }
 
@@ -189,8 +180,6 @@ buttonEdit.addEventListener('click', handleEditClickToForm);
 buttonAdd.addEventListener('click', handleAddClickToForm);
 formCard.addEventListener('submit', handleSubmitAdd);
 profileForm.addEventListener('submit', handleProfileFormSubmit);
-buttonEditClose.addEventListener('click', closePopupEdit);
-buttonAddClose.addEventListener('click', closePopupAdd);
 buttonImageClose.addEventListener('click', closePopupImage);
 
 
