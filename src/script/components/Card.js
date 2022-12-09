@@ -1,10 +1,10 @@
 //Задаем Class карточки, экспортируем в основной файл JS - index.js
 export default class Card {
-    constructor(data, templateSelector, handleCardClick){
+    constructor(data, templateSelector, clickOnCard){
         this._name = data.name;
         this._link = data.link;
         this._templateSelector = templateSelector;
-        this._handleCardClick = handleCardClick;
+        this._clickOnCard = clickOnCard;
     }
 
     //Находим template в html
@@ -45,7 +45,7 @@ export default class Card {
         })
 
         this._cardImage.addEventListener('click', () => {
-            this._handleCardClick(this._name, this._link)
+            this._clickOnCard(this._link, this._name)
           });
     }
 

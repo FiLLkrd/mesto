@@ -3,22 +3,17 @@ export {
   initialCards,
   validateConfig,
   imageCardFull,
-  caption,
+  captionElement,
   popupEdit,
   popupAdd,
   popupImage,
   buttonEdit,
-  buttonEditClose,
   buttonAdd,
-  buttonAddClose,
   profileName,
   profileJob,
-  profileForm,
   popupName,
   popupJob,
   formCard,
-  popupCardName,
-  popupCardLink,
   elementsContainer
  }
 
@@ -64,28 +59,25 @@ const validateConfig = {
 
 //Константы кнопок, модальных окон
 
-  const imageCardFull = document.querySelector('.popup__full-image');
-  const caption = document.querySelector('.popup__caption');
+  const imageCardFull = document.querySelector('.popup__image');
+  const captionElement = document.querySelector('.popup__caption');
   const popupEdit = document.querySelector('.popup_type_edit');
   const popupAdd  = document.querySelector('.popup_type_add-card');
   const popupImage = document.querySelector('.popup_type_full');
   const buttonEdit = document.querySelector('.profile__button_edit');
-  const buttonEditClose = document.querySelector('.popup__button_close');
   const buttonAdd = document.querySelector('.profile__button_add');
-  const buttonAddClose = document.querySelector('.popup__button_close_add');
+
   //Переменные для работы с модальным окном редактирования пользователя 
 
 const profileName = document.querySelector('.profile__name');
 const profileJob = document.querySelector('.profile__job');
-const profileForm = document.querySelector('.form_type_edit');
+
 const popupName = document.querySelector('.form__input_type_name');
 const popupJob = document.querySelector('.form__input_type_job');
 
 //Переменные для работы с модальным окном добавления новой карточки
 
 const formCard = document.querySelector('.form_type_add-card');
-const popupCardName = document.querySelector('.form__input_type_title');
-const popupCardLink = document.querySelector('.form__input_type_link');
 
 //Переменные для добавления набора карточек из массива на страницу при загрузке 
 

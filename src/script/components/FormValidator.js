@@ -30,6 +30,17 @@ export default class FormValidator {
       errorElement.textContent = '';
     }
 
+    disableBtn = () => {
+      this._buttonElement.classList.add(this._inactiveButtonClass);
+        this._buttonElement.disabled = true;
+    }
+
+    enableBtn = () => {
+      this._buttonElement.classList.remove(this._inactiveButtonClass);
+        this._buttonElement.disabled = false;
+    }
+
+
    //Проверка валидации 
     
     _checkInputValidity(inputElement) {
@@ -50,11 +61,9 @@ export default class FormValidator {
     
     _toggleButtonState() {
       if (this._hasInvalidInput()) {
-        this._buttonElement.classList.add(this._inactiveButtonClass);
-        this._buttonElement.disabled = true;
+        this.disableBtn();
       } else {
-        this._buttonElement.classList.remove(this._inactiveButtonClass);
-        this._buttonElement.disabled = false;
+        this.enableBtn();
       }
     }
 
