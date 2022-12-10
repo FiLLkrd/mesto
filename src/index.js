@@ -1,10 +1,11 @@
-//импорты 
-import Section from '../script/components/Section.js';
-import Card from '../script/components/Card.js';
-import UserInfo from '../script/components/UserInfo.js';
-import FormValidator from '../script/components/FormValidator.js';
-import PopupWithImage from '../script/components/PopupWithImage.js';
-import PopupWithForm from '../script/components/PopupWithForm.js';
+//импорты
+import './pages/index.css';
+import Section from './script/components/Section.js';
+import Card from './script/components/Card.js';
+import UserInfo from './script/components/UserInfo.js';
+import FormValidator from './script/components/FormValidator.js';
+import PopupWithImage from './script/components/PopupWithImage.js';
+import PopupWithForm from './script/components/PopupWithForm.js';
 
 
 import {
@@ -17,7 +18,7 @@ import {
   buttonAdd,
   popupName,
   popupJob,
-  elementsContainer} from '../script/utils/constants.js';
+  elementsContainer} from './script/utils/constants.js';
 
 //Создаем экземпляр класса вывода картинки (при клике) на весь экран
 
@@ -84,11 +85,11 @@ const cardList = new Section({
 cardList.renderItems();
 
 const addCardPopup = new PopupWithForm(popupAdd, {
-  handleSubmitForm: (data) => {
+  handleSubmitForm: (inputValues) => {
     cardList.addItem(
       createCard({
-        name: data.text,
-        link: data.url
+        name: inputValues.namecard,
+        link: inputValues.linkcard
       })
     );
   }
