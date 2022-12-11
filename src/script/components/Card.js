@@ -56,7 +56,6 @@ export default class Card {
 
     //Функция клика по кнопке удаления карточки
     _handleDeleteClick(){
-        const cardElement = this._element.closest('.card');
-        cardElement.remove();
+        this._element.remove();
     }
 }

@@ -1,5 +1,5 @@
 //импорты
-import './pages/index.css';
+import "./pages/index.css";
 import Section from './script/components/Section.js';
 import Card from './script/components/Card.js';
 import UserInfo from './script/components/UserInfo.js';

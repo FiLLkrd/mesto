@@ -1,7 +1,7 @@
 //экспортируем класс, для использования в index.js
 export default class Popup{
-    constructor (popup) {
-        this._popupSelector = popup;
+    constructor (popupSelector) {
+        this._popupSelector = popupSelector;
         this._handleEscClose = this._handleEscClose.bind(this);
     }
 

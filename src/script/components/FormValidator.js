@@ -32,12 +32,12 @@ export default class FormValidator {
 
     disableBtn = () => {
       this._buttonElement.classList.add(this._inactiveButtonClass);
-        this._buttonElement.disabled = true;
+      this._buttonElement.disabled = true;
     }
 
     enableBtn = () => {
       this._buttonElement.classList.remove(this._inactiveButtonClass);
-        this._buttonElement.disabled = false;
+      this._buttonElement.disabled = false;
     }
 
 
@@ -95,6 +95,4 @@ export default class FormValidator {
     
       this._toggleButtonState();
     }
-
-    
 }
