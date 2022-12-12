@@ -22,8 +22,8 @@ import {
 
 //Создаем экземпляр класса вывода картинки (при клике) на весь экран
 
-  const popupFullScreen = new PopupWithImage (popupImage);
-  popupFullScreen.setEventListeners(popupImage);
+  const popupFullScreen = new PopupWithImage ('.popup_type_full');
+  popupFullScreen.setEventListeners('.popup__image');
   
   const clickOnCard = (image, caption) => {
     popupFullScreen.open(image, caption);
@@ -38,7 +38,7 @@ import {
 
 //Создаем экземпляр класса с попап редактирования профиля. Данный класс дочерний от Popup
 
-  const profilePopup = new PopupWithForm (popupEdit, {
+  const profilePopup = new PopupWithForm ('.popup_type_edit', {
     handleSubmitForm: (data) => {
       userProfileInfo.setUserInfo({
         userName: data.name,
@@ -84,7 +84,7 @@ const cardList = new Section({
 
 cardList.renderItems();
 
-const addCardPopup = new PopupWithForm(popupAdd, {
+const addCardPopup = new PopupWithForm('.popup_type_add-card', {
   handleSubmitForm: (inputValues) => {
     cardList.addItem(
       createCard({
