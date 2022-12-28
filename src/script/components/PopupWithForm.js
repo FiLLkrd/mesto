@@ -8,6 +8,7 @@ export default class PopupWithForm extends Popup{
         this._inputList = Array.from(this._popup.querySelectorAll('.form__input'));
     }
 
+    //получаем значения инпутов форм
     _getInputValues(){
         const inputValues = {};
         this._inputList.forEach((input) => {
@@ -16,11 +17,21 @@ export default class PopupWithForm extends Popup{
         return inputValues;
     }
 
+    loading(isLoading) {
+        if(isLoading) {
+          this._popupBtn.textContent = "Сохранение...";
+        } else {
+          this._popupBtn.textContent = "Сохраненить";
+        }
+      }
+
+    //закрываем попап окно со сбросом валидации
     close(){
         super.close();
         this._formSelector.reset();
     }
 
+    //добавляем слушатель сабмитов форм
     setEventListeners(){
         this._formSelector.addEventListener('submit', (evt) => {
             evt.preventDefault();

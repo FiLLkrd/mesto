@@ -7,6 +7,7 @@ export default class PopupWithImage extends Popup {
         this._captionElement = this._popup.querySelector('.popup__caption')
     }
 
+    //открываем попап картинки на весь экран
     open(image, caption){
         this._imageCardFull.src = image;
         this._imageCardFull.alt = caption;

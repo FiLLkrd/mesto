@@ -1,17 +1,18 @@
 export default class Section {
-    constructor({items, renderer}, containerSelector){
-      this._initialCards = items;
+    constructor({ renderer }, containerSelector){
         this._renderer = renderer;
         this._containerSelector = containerSelector;
     }
 
+    //прописываем логику добавления карточек (новых) в массив созданных в начало
     addItem(element) {
         this._containerSelector.prepend(element);
       }
 
-    renderItems(){
-        this._initialCards.forEach((item) => {
-            this._renderer(item);
-          });
-        }
+      //создаем карточку из массива
+      renderItems(items) {
+        items.forEach((item) => {
+          this._renderer(item);
+        });
+      }
 }
