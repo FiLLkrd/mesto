@@ -515,13 +515,38 @@
 }
 
 .profile__avatar{
-    max-width: 120px;
-    max-height: 120px;
+    background-size: cover;
+    width: 120px;
+    height: 120px;
     border-radius: 50%;
     object-fit: cover;
+    position: relative;
+    background-position: center;
+    background-image: url(b0d66970d4e0d613e07b.jpg);
+    cursor: pointer;
 }
 
+.profile__avatar::after{
+    content: '';
+    background-color: rgba(0, 0, 0, 0.8);
+    box-sizing: border-box;
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    opacity: 0;
+    transition: ease-out .1s;
+    
+}
 
+.profile__avatar:hover::after{
+    opacity: 0.8;
+    background-image: url(a086f758840ae814ecde.svg);
+   
+    background-repeat: no-repeat;
+    background-position: center;
+}
 .profile__button_add {
     width: 150px;
     height: 50px;
@@ -651,7 +676,7 @@
   
 .card__title {
     width: 190px;
-    margin: 0;
+    margin: auto 0;
     font-size: 24px;
     line-height: 29px;
     font-weight: 900;
@@ -674,6 +699,15 @@
 
 .card__trash:hover{
     opacity: 0.5;
+}
+.card__number-counter{
+    margin: 0;
+    padding: 0;
+    font-weight: 400;
+    font-size: 13px;
+    line-height: 16px;
+    text-align: center;
+    color: #000;
 }
 .popup__container {
     width: 430px;
