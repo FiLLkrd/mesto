@@ -21,7 +21,7 @@ export default class PopupWithForm extends Popup{
         if(isLoading) {
           this._popupBtn.textContent = "Сохранение...";
         } else {
-          this._popupBtn.textContent = "Сохраненить";
+          this._popupBtn.textContent = "Сохранить";
         }
       }
 
@@ -36,7 +36,7 @@ export default class PopupWithForm extends Popup{
         this._formSelector.addEventListener('submit', (evt) => {
             evt.preventDefault();
             this._handleSubmitForm(this._getInputValues());
-            this.close();
+            
         });
     super.setEventListeners();
     }
